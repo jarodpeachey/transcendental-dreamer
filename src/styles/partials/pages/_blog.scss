@@ -1,0 +1,426 @@
+@use "../breakpoints" as *;
+@use "../shadows" as *;
+@use "../colors" as *;
+
+.blog {
+  // .logo {
+  //   width: 80px;
+  // }
+  .hero {
+    position: relative;
+    overflow: visible;
+    padding-bottom: 224px;
+    padding-top: 164px;
+    background: $color--primary-lightest;
+
+    @include media-breakpoint-up(md) {
+      padding-top: 170px;
+      padding-bottom: 224px;
+    }
+
+    .col-lg-8 {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .container {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 56px;
+      text-align: center;
+      margin-bottom: 0;
+      margin-top: 0;
+      color: $color--heading;
+      font-weight: 600;
+      // max-width: 520px;
+
+      @include media-breakpoint-up(md) {
+        font-size: 56px;
+        line-height: 66px;
+      }
+    }
+  }
+
+  .posts {
+    // padding: 0;
+    // background: white;
+    position: relative;
+    overflow: visible;
+    // margin-top: 159px;
+    margin-top: -100px;
+    padding-bottom: 300px;
+
+    @include media-breakpoint-up(md) {
+      padding-bottom: 400px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 0;
+      margin-top: -60px;
+    }
+
+    .white {
+      background: white;
+      padding-top: 60px;
+
+      @include media-breakpoint-up(lg) {
+        padding-top: 0;
+      }
+    }
+
+    img[src*="circle"] {
+      max-width: 99999px;
+      width: 100%;
+      bottom: 99%;
+      position: absolute;
+      left: 0;
+    }
+
+    .col-md-6.col-lg-4 {
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      @include media-breakpoint-up(md) {
+        &:nth-child(5) {
+          padding-bottom: 0;
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        &:nth-child(4) {
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    .post-card {
+      height: 100%;
+      display: block;
+      text-decoration: none;
+      margin: 0 auto;
+      max-width: 335px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 2px 2px 40px 0px #44455510;
+      transition: 0.2s;
+      // padding: 32px;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      @include media-breakpoint-up(lg) {
+        text-align: left;
+        margin: 0;
+      }
+
+      img {
+        width: 100%;
+        margin-bottom: 16px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      h3 {
+        padding: 0px 32px;
+        margin-top: 0;
+        margin-bottom: 8px;
+      }
+
+      p {
+        padding: 0px 32px;
+        margin-bottom: 0;
+        font-size: 16px;
+        margin: 0;
+        margin-bottom: 32px;
+      }
+
+      small {
+        display: block;
+        padding: 0px 32px;
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  .infinite__item.hidden {
+    display: none;
+  }
+
+  .infinite__item {
+    h3,
+    .post-card__date {
+      transition: 0.2s;
+    }
+
+    .tag {
+      transition: 0.2s;
+    }
+
+    img {
+      transition: 0.2s;
+    }
+  }
+
+  .infinite__item.skeleton {
+    .post-card {
+      cursor: default !important;
+      transform: none !important;
+
+      &:hover {
+        transform: none !important;
+      }
+    }
+
+    h3,
+    .post-card__date {
+      background: #e7e7e7 !important;
+      color: #e7e7e7 !important;
+      border-radius: 8px !important;
+      position: relative !important;
+      overflow: hidden !important;
+
+      &:after {
+        width: 200%;
+        height: 100%;
+        position: absolute;
+        content: "";
+        display: block;
+        top: 0;
+        left: 0;
+        animation: skeleton 2s infinite forwards;
+        background: linear-gradient(to right, #ffffff20, #ffffffaa, #ffffff20);
+      }
+    }
+
+    .tag {
+      background: #ffffff !important;
+      color: transparent !important;
+      position: relative !important;
+      display: block !important;
+      overflow: hidden !important;
+
+      &:after {
+        width: 200%;
+        height: 100%;
+        position: absolute;
+        content: "";
+        display: block;
+        top: 0;
+        left: 0;
+        animation: skeleton 2s infinite forwards;
+        background: linear-gradient(to right, #ffffff01, #ffffff20, #ffffff01);
+      }
+    }
+
+    .post-card__image {
+      overflow: hidden !important;
+      position: relative;
+      background: #e7e7e7;
+      aspect-ratio: 16/10.4;
+
+      &:after {
+        width: 200%;
+        height: 100%;
+        position: absolute;
+        content: "";
+        display: block;
+        top: 0;
+        left: 0;
+        animation: skeleton 2s infinite forwards;
+        background: linear-gradient(to right, #ffffff20, #ffffffaa, #ffffff20);
+      }
+    }
+
+    img {
+      display: none;
+    }
+
+    .silo__image {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    img[src*="icon--"] {
+      display: block;
+      transition: 0.2s;
+      filter: brightness(400%) grayscale(200%);
+
+      transform: none !important;
+    }
+  }
+
+  .cta {
+    background: $color--primary-dark;
+    position: relative;
+    overflow: visible;
+    // margin-top: 159px;
+
+    @include media-breakpoint-up(lg) {
+      background-size: contain;
+    }
+    // }
+
+    img.wave {
+      position: absolute;
+      left: 0;
+      bottom: 99%;
+      // top: -159px;
+      width: 100%;
+
+      @media (min-width: 1400px) {
+        width: 100%;
+      }
+    }
+
+    .blob {
+      position: absolute;
+      top: -5rem;
+      width: 400px;
+      right: -15rem;
+
+      @include media-breakpoint-up(lg) {
+        width: 500px;
+        top: -9rem;
+      }
+    }
+
+    .blobs {
+      position: absolute;
+      bottom: 0;
+      width: 500px;
+      left: -15rem;
+
+      @include media-breakpoint-up(md) {
+        left: -5rem;
+      }
+
+      @include media-breakpoint-up(lg) {
+        width: 600px;
+        bottom: 0rem;
+      }
+    }
+
+    p.display {
+      color: white;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 48px;
+      color: white;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 64px;
+      }
+    }
+
+    .section-description {
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      margin: 0 auto;
+      max-width: 500px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 40px 0px #7879961a;
+      padding: 32px;
+
+      @include media-breakpoint-up(md) {
+        padding: 64px;
+      }
+
+      ::placeholder {
+        font-size: 16px;
+      }
+
+      input[type="text"],
+      input[type="button"],
+      input,
+      input[type="submit"] {
+        -webkit-appearance: none !important;
+        // -webkit-border-radius: 0;
+      }
+
+      label {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 28px;
+        width: 100%;
+        color: #191a1c;
+        margin-bottom: 16px;
+        display: block;
+
+        span {
+          color: rgb(192, 46, 10);
+        }
+
+        &.mt {
+          margin-top: 8px;
+        }
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        border: 1px solid #e5eafa;
+        box-sizing: border-box;
+        border-radius: 8px;
+        display: block;
+        padding: 10px 16px 13px;
+        color: $color--text;
+        width: 100%;
+        margin-top: 8px;
+
+        &::placeholder {
+          color: $color--text;
+          opacity: 0.6;
+        }
+
+        &:focus {
+          border-color: $color--primary;
+          outline: none;
+        }
+      }
+
+      textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
+
+      .btn {
+        margin-top: 16px !important;
+        width: 100% !important;
+        cursor: pointer !important;
+        margin-bottom: 12px;
+      }
+
+      .subtext {
+        color: $color--text;
+        font-family: "Poppins";
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 28px;
+
+        a {
+          color: $color--link;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+// @use "breakpoints" as *;
+@use "colors" as *;
+@use "shadows" as *;
+// @use "utilities" as *;
+
+.btn {
+  background: $color--primary;
+  color: white;
+  padding: 16px 32px 15px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 300;
+  text-align: center;
+  border: 1px solid $color--primary;
+  box-shadow: 2px 2px 12px 0px #1C2C5E1A;
+  text-decoration: none;
+  position: relative;
+  transition: .2s ease;
+  display: block;
+  width: fit-content;
+
+  &::after {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid $color--primary-light;
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    display: block;
+    transition: .2s ease;
+    z-index: -1;
+    border-radius: 8px;
+  }
+
+  &:hover {
+    // transform: rotate(-4deg);
+    box-shadow: 2px 2px 24px 0px #1c2d5e25;
+
+    &::after {
+      transform: rotate(-6deg);
+      z-index: -1;
+    }
+  }
+
+  &.text {
+    padding-left: 0;
+    padding-right: 0;
+    background: transparent;
+    color: $color--primary-dark;
+    border: none;
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+
+    svg, img {
+      margin-left: 8px;
+      transition: .2s ease;
+    }
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      box-shadow: none;
+
+      svg, img {
+        margin-left: 12px;
+      }
+    }
+  }
+}
