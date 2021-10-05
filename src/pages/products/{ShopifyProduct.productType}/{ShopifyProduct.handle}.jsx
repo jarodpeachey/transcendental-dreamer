@@ -7,7 +7,7 @@ import { StoreContext } from "../../../context/store-context"
 import { AddToCart } from "../../../components/add-to-cart"
 import { NumericInput } from "../../../components/numeric-input"
 import { formatPrice } from "../../../utils/format-price"
-import SEO, { Seo } from "../../../components/seo"
+import SEO from "../../../components/SEO"
 import { CgChevronRight as ChevronIcon } from "react-icons/cg"
 import {
   productBox,
