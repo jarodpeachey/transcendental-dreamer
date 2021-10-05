@@ -11,7 +11,6 @@ function SEO({ description, title, bodyClass, image = null }) {
           siteMetadata {
             title
             description
-            author
             siteUrl
           }
         }
@@ -32,7 +31,7 @@ function SEO({ description, title, bodyClass, image = null }) {
       <meta name="og:image" content={image || `https://jellydevelopment.com/media/img/SEO.png?test=true`} />
       <meta name="twitter:image" content={image || `https://jellydevelopment.com/media/img/SEO.png?test=true`} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={site.siteMetadata.author} />
+      <meta name="twitter:creator" content="@jarodpeachey" />
       <meta name="twitter:title" content={title || defaultTitle} />
       <meta name="twitter:description" content={description || defaultDescription} />
 
