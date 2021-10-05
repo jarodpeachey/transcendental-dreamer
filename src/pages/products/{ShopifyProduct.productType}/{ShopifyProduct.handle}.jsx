@@ -7,7 +7,7 @@ import { StoreContext } from "../../../context/store-context"
 import { AddToCart } from "../../../components/add-to-cart"
 import { NumericInput } from "../../../components/numeric-input"
 import { formatPrice } from "../../../utils/format-price"
-import { Seo } from "../../../components/seo"
+import SEO, { Seo } from "../../../components/seo"
 import { CgChevronRight as ChevronIcon } from "react-icons/cg"
 import {
   productBox,
@@ -105,7 +105,7 @@ export default function Product({ data: { product, suggestions } }) {
   return (
     <Layout>
       {firstImage ? (
-        <Seo
+        <SEO
           title={title}
           description={description}
           image={getSrc(firstImage.gatsbyImageData)}
