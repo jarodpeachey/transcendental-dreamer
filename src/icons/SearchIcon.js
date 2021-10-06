@@ -1,6 +1,6 @@
 import * as React from "react"
 
-function CrossIcon(props) {
+const SearchIcon = (props) => {
   return (
     <svg
       width={24}
@@ -10,14 +10,16 @@ function CrossIcon(props) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
+      <title>{"Search"}</title>
+      <circle cx={11} cy={11} r={7} stroke="currentColor" strokeWidth={1} />
       <path
         stroke="currentColor"
-        strokeWidth={2}
+        strokeWidth={1}
         strokeLinecap="round"
-        d="M6.343 6.571l11.314 11.314M6.343 17.885L17.657 6.571"
+        d="M15.914 16l4.596 4.596"
       />
     </svg>
   )
 }
 
-export default CrossIcon
+export default SearchIcon

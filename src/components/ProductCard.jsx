@@ -3,16 +3,9 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getShopifyImage } from "gatsby-source-shopify"
 import { formatPrice } from "../utils/format-price"
-import {
-  productCardStyle,
-  productHeadingStyle,
-  productImageStyle,
-  productDetailsStyle,
-  productVendorStyle,
-  productPrice,
-} from "./product-card.module.css"
+import "../styles/partials/_product-card.scss"
 
-export function ProductCard({ product, eager }) {
+const ProductCard = ({ product, eager }) => {
   const {
     title,
     priceRangeV2,
@@ -48,13 +41,13 @@ export function ProductCard({ product, eager }) {
 
   return (
     <Link
-      className={productCardStyle}
       to={slug}
       aria-label={`View ${title} product page`}
+      className="product-card"
     >
       {hasImage
         ? (
-          <div className={productImageStyle} data-name="product-image-box">
+          <div className="product-card__image" data-name="product-image-box">
             <GatsbyImage
               alt={firstImage?.altText ?? title}
               image={firstImage?.gatsbyImageData ?? storefrontImageData}
@@ -65,16 +58,17 @@ export function ProductCard({ product, eager }) {
           <div style={{ height: defaultImageHeight, width: defaultImageWidth }} />
         )
       }
-      <div className={productDetailsStyle}>
-        <div className={productVendorStyle}>{vendor}</div>
-        <h2 as="h2" className={productHeadingStyle}>
+      <div className="product-card__info">
+        <h3>
           {title}
-        </h2>
-        <div className={productPrice}>{price}</div>
+        </h3>
+        <span>{price}</span>
       </div>
     </Link>
   )
 }
+
+export default ProductCard;
 
 export const query = graphql`
   fragment ProductCard on ShopifyProduct {

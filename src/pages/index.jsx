@@ -1,9 +1,9 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import { Layout } from "../components/layout";
-import { ProductListing } from "../components/product-listing";
-import { container, intro, callOut, callToAction, deployButton } from "./index.module.css";
-import SEO from '../components/SEO';
+import ProductGrid from "../components/ProductGrid";
+import SEO from "../components/SEO";
+import Layout from "../components/Layout";
+import "../styles/partials/pages/_home.scss";
 
 export const query = graphql`
   query {
@@ -14,36 +14,29 @@ export const query = graphql`
     }
   }
 `;
-function Hero(props) {
-  return (
-    <div className={container}>
-      <h1 className={intro}>Welcome to the GatsbyJS + Shopify Demo Store.</h1>
-      {!!process.env.GATSBY_DEMO_STORE && (
-        <>
-          <p className={callOut}>
-            It's a proof-of-concept in a box, with 10k products and 30k variants to help you get to proof-of-concept as soon as right now.
-          </p>
-          <p className={callToAction}>
-            Hook it up to your own Shopify store data and start customizing in minutes by deploying it to Gatsby Cloud for free. Grab your Shopify store
-            credentials and
-            <a href="https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-shopify&utm_campaign=shopify-starter">
-              <img src="https://www.gatsbyjs.com/deploynow.png" alt="Deploy to Gatsby Cloud" className={deployButton} />
-            </a>
-          </p>
-        </>
-      )}
-    </div>
-  );
-}
 
-export default function IndexPage({ data }) {
+const Home = ({ data }) => {
   return (
-    <>
-      <SEO bodyClass="contact" />
-      <Layout>
-        <Hero />
-        <ProductListing products={data?.shopifyCollection?.products} />
-      </Layout>
-    </>
+    <Layout transparent>
+      <SEO bodyClass="home" title="Transcendental Dreamer" />
+      <div className="hero">
+        <div className="container">
+          <div className="card">
+            <h1>Designed to inspire</h1>
+            <a href="/" className="btn">
+              SHOP NOW
+            </a>
+          </div>
+        </div>
+      </div>
+      <section className="products">
+        <div className="container">
+          <h2>The Classics Collection</h2>
+          <ProductGrid products={data?.shopifyCollection?.products} />
+        </div>
+      </section>
+    </Layout>
   );
-}
+};
+
+export default Home;

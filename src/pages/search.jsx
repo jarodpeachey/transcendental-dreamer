@@ -3,12 +3,12 @@ import { graphql } from "gatsby"
 import slugify from "@sindresorhus/slugify"
 import debounce from "debounce"
 import { CgChevronRight, CgChevronLeft } from "react-icons/cg"
-import { Layout } from "../components/layout"
-import CrossIcon from "../icons/cross"
-import SortIcon from "../icons/sort"
-import FilterIcon from "../icons/filter"
-import SearchIcon from "../icons/search"
-import { ProductCard } from "../components/product-card"
+import Layout from "../components/Layout"
+import CloseIcon from "../icons/CloseIcon"
+import SortIcon from "../icons/SortIcon"
+import FilterIcon from "../icons/FilterIcon"
+import SearchIcon from "../icons/SearchIcon"
+import ProductCard from "../components/ProductCard"
 import { getValuesFromQueryString, useProductSearch } from "../utils/hooks"
 import { getCurrencySymbol } from "../utils/format-price"
 import { Spinner } from "../components/progress"
@@ -195,7 +195,7 @@ function SearchPage({
           <div className={filterTitle}>
             <h2>Filter</h2>
             <button aria-hidden onClick={() => setShowModal(false)}>
-              <CrossIcon />
+              <CloseIcon />
             </button>
           </div>
           <div className={filterWrap}>
@@ -295,7 +295,7 @@ function SearchBar({ defaultTerm, setFilters }) {
           }}
           aria-label="Clear search query"
         >
-          <CrossIcon />
+          <CloseIcon />
         </button>
       ) : undefined}
     </form>

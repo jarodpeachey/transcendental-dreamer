@@ -62,12 +62,12 @@ module.exports = {
         removePreloadLinks: false,
       },
     },
-    {
-      resolve: "gatsby-plugin-no-javascript",
-      options: {
-        excludeFiles: "request",
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-no-javascript",
+    //   options: {
+    //     excludeFiles: "request",
+    //   },
+    // },
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-sitemap",
     {

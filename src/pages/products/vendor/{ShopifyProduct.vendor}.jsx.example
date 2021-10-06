@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { Layout } from "../../../components/layout"
+import Layout from "../../../components/Layout"
 import { ProductListing } from "../../../components/product-listing"
 import SEO from "../../../components/SEO"
 import slugify from "@sindresorhus/slugify"

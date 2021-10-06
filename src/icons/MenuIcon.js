@@ -1,0 +1,25 @@
+import * as React from "react";
+
+const MenuIcon = props => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      {...props}
+    >
+      <title>{"Open menu"}</title>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  );
+};
+
+export default MenuIcon;

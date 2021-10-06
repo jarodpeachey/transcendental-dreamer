@@ -4,7 +4,7 @@ import { StoreContext } from "../context/store-context"
 import { formatPrice } from "../utils/format-price"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getShopifyImage } from "gatsby-source-shopify"
-import DeleteIcon from "../icons/delete"
+import DeleteIcon from "../icons/DeleteIcon"
 import { NumericInput } from "./numeric-input"
 import {
   title,

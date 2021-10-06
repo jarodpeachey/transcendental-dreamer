@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import { Layout } from "../components/layout";
+import Layout from "../components/Layout";
 import { StoreContext } from "../context/store-context";
 import { LineItem } from "../components/line-item";
 import { formatPrice } from "../utils/format-price";

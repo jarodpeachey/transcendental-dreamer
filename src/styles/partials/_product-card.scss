@@ -1,0 +1,27 @@
+@use "./colors" as *;
+@use "./breakpoints" as *;
+
+.product-card {
+  text-decoration: none;
+
+  .product-card__image {
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  h3 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 22px;
+    text-decoration: none;
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+
+  span {
+    font-family: "Montserrat";
+    font-weight: 300;
+    font-size: 16px;
+  }
+}
