@@ -28,10 +28,10 @@ const Header = ({ transparent }) => {
               </div>
               <MenuIcon class="mobile-menu__toggle__svg mobile-menu__open" />
               <div className="icons mobile">
-                <Link to="/search" className="menu__item icon">
+                <Link to="/search">
                   <SearchIcon />
                 </Link>
-                <Link to="/cart" className="menu__item icon">
+                <Link to="/cart">
                   <CartButton quantity={quantity} />
                 </Link>
               </div>
@@ -64,10 +64,10 @@ const Header = ({ transparent }) => {
                     </Link>
                   </li>
                   <div className="icons">
-                    <Link to="/search" className="menu__item icon">
+                    <Link to="/search">
                       <SearchIcon />
                     </Link>
-                    <Link to="/cart" className="menu__item icon">
+                    <Link to="/cart">
                       <CartButton quantity={quantity} />
                     </Link>
                   </div>

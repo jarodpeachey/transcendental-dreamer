@@ -20,20 +20,28 @@ nav {
     position: absolute;
     z-index: 99;
 
-    .menu__item,
-    span,
+    .logo a,
+    .mobile-menu__open,
     a,
-    .mobile-menu__open {
-      color: white !important;
+    a > svg {
+      color: white;
       stroke: white !important;
     }
 
-    .menu__item:hover {
-      color: white !important;
-      border-bottom-color: white !important;
+    .menu__item {
+      color: $color--heading;
+
+      @include media-breakpoint-up(lg) {
+        color: white;
+
+        &:hover {
+          color: white;
+          border-bottom-color: white;
+        }
+      }
     }
 
-    span {
+    .menu__item span {
       background: white !important;
     }
   }
@@ -91,7 +99,22 @@ nav {
   .icons {
     display: none;
 
-    color: $color--heading;
+    a {
+      padding: 4px 8px;
+      border-bottom: none !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color--heading;
+    }
+
+    a:first-child {
+      padding-left: 0;
+    }
+
+    a:last-child {
+      padding-right: 0;
+    }
 
     @include media-breakpoint-up(lg) {
       display: flex;
@@ -105,21 +128,7 @@ nav {
       right: 0;
 
       a {
-        padding: 4px 8px;
-        height: 100%;
-        display: block;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         color: $color--heading;
-      }
-
-      a:first-child {
-        padding-left: 0;
-      }
-
-      a:last-child {
-        padding-right: 0;
       }
 
       @include media-breakpoint-up(lg) {
@@ -266,11 +275,6 @@ nav {
         opacity: 1;
         left: 0;
         border-bottom: 1px solid $color--heading;
-      }
-
-      &.icon {
-        padding: 4px 8px;
-        border-bottom: none !important;
       }
     }
   }
