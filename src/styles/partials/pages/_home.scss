@@ -38,8 +38,6 @@
       text-align: center;
       max-width: 600px;
       font-family: "Montserrat";
-      position: relative;
-      z-index: 6;
       margin-bottom: 24px;
 
       @include media-breakpoint-up(md) {
@@ -56,8 +54,6 @@
       text-align: center;
       font-weight: normal;
       text-transform: uppercase;
-      position: relative;
-      z-index: 6;
       margin-bottom: 24px;
       // font-family: "Old Standard TT";
       font-family: "Old Standard TT";
@@ -72,8 +68,6 @@
     }
 
     .btn {
-      position: relative;
-      z-index: 6;
       @include media-breakpoint-up(sm) {
         display: inline-block;
 

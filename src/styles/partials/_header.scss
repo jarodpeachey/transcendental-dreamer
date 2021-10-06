@@ -6,6 +6,7 @@ nav {
   top: 0;
   width: 100%;
   transition: 0.3s;
+  z-index: 999;
   // background: white;
 
   background: white;
@@ -15,10 +16,9 @@ nav {
 
   &.transparent {
     padding-top: 1rem;
-    padding-bottom: calc(60vh - 56px);
-    background: linear-gradient(to bottom, #00000050 30%, transparent);
+    padding-bottom: calc(20vh - 56px);
+    background: linear-gradient(180deg, #472c0b50 30%, transparent);
     position: absolute;
-    z-index: 1;
 
     .logo a,
     .mobile-menu__open,
