@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import { StoreContext } from "../context/store-context";
-import { CartButton } from "./cart-button";
+import CartButton from "./CartButton";
 import SearchIcon from "../icons/SearchIcon";
 import { Toast } from "./toast";
 import "../styles/partials/_header.scss";
@@ -21,6 +21,7 @@ const Header = ({ transparent }) => {
     <>
       <header>
         <nav role="navigation" aria-label="Main" className={`nav ${transparent ? "transparent" : ""}`}>
+        <div className="callout">25% off everything through Black Friday</div>
           <div className="container container--wide">
             <div className="menu__wrapper">
               <div className="logo" id="logo">

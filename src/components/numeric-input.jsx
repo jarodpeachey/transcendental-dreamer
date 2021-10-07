@@ -9,7 +9,7 @@ export function NumericInput({
   ...props
 }) {
   return (
-    <div className={wrap}>
+    <div className={`quantity ${wrap}`}>
       <input
         disabled={disabled}
         type="numeric"

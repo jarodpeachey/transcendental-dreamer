@@ -1,0 +1,26 @@
+@use "../colors" as *;
+
+.cart-button {
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  position: relative;
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: "Montserrat";
+  color: inherit;
+  width: 20px;
+  height: 20px;
+  background: $color--tan;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  position: absolute;
+  right: -10px;
+  top: -5px;
+}

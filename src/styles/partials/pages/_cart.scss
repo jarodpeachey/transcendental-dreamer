@@ -1,0 +1,230 @@
+@use "../breakpoints" as *;
+@use "../shadows" as *;
+@use "../colors" as *;
+
+.cart {
+  .cart__wrapper {
+    border-top: 1px solid #e8e8e8;
+    padding-top: 60px;
+
+    @include media-breakpoint-up(md) {
+      padding-top: 80px;
+    }
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 12px;
+    font-size: 32px;
+    line-height: 38px;
+
+    @include media-breakpoint-up(md) {
+      // margin-bottom: 32px;
+    }
+  }
+  p {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 24px;
+    font-size: 18px;
+    font-weight: 300;
+    max-width: 500px;
+    color: $color--text;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 32px;
+    }
+  }
+  table {
+    flex: 1;
+    max-width: 1024px;
+    margin: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 48px 1fr min-content;
+    gap: var(--space-md) var(--space-2xl);
+  }
+  table th {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: var(--text-xs);
+    padding-bottom: var(--space-2xl);
+    font-weight: 500;
+    font-size: 16px;
+    font-family: "Montserrat";
+    color: $color--heading;
+  }
+
+  table tr,
+  table thead,
+  table tbody {
+    display: contents;
+  }
+
+  .collapse {
+    display: none;
+  }
+
+  .totals,
+  table th.totals {
+    text-align: right;
+  }
+
+  th.product {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  th.image {
+    position: fixed;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  .summary td {
+    padding-top: var(--space-3xl);
+  }
+
+  .summary ~ .summary td {
+    padding-top: 0;
+  }
+
+  .summary .label {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .summary .totals {
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+
+  .summary {
+    font-weight: var(--semibold);
+    font-size: var(--text-lg);
+  }
+
+  .grand-total {
+    font-size: var(--text-2xl);
+    font-weight: var(--semibold);
+  }
+
+  .grand-total .label {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  span {
+    font-family: "Montserrat";
+    font-size: 16px;
+    color: $color--heading;
+    margin-bottom: 24px;
+    display: block;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 32px;
+    }
+  }
+  .option {
+    transition: 0.2s;
+    padding: 6px 16px;
+    border-radius: none;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    border-left: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: "Montserrat";
+
+    &.active {
+      background: $color--heading;
+      color: white;
+
+      &:hover {
+        background: $color--heading;
+      }
+    }
+
+    &:hover {
+      background: #e8e8e8;
+    }
+
+    &:first-child {
+      border-bottom-left-radius: 2px;
+      border-top-left-radius: 2px;
+      border-left: 1px solid #e8e8e8;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 2px;
+      border-top-right-radius: 2px;
+    }
+  }
+  .btn {
+    cursor: pointer;
+    // width: 100%;
+    // flex: 1 1 0;
+  }
+  .button__flex {
+    // display: flex;
+    .options__title {
+      margin-top: 12px;
+    }
+  }
+  .quantity {
+    // width: 100%;
+    width: fit-content;
+    background: transparent;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    margin: 0 0 12px 0;
+
+    input {
+      border: none;
+      // width: 100%;
+      padding: 4px 16px;
+    }
+  }
+  .tag {
+    background: #e8e8e8;
+    border-radius: 2px;
+    padding: 4px 8px;
+    font-size: 14px;
+    text-decoration: none;
+    color: $color--heading;
+    font-family: "Montserrat";
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 640px) {
+  .summary .label,
+  .summary .totals,
+  .grand-total .label {
+    grid-column-start: auto;
+    grid-column-end: auto;
+  }
+
+  .collapse {
+    display: block;
+  }
+
+  table {
+    grid-template-columns: 80px 1fr repeat(3, min-content);
+  }
+}
+
+@media (min-width: 1024px) {
+  table {
+    grid-template-columns: max-content 1fr repeat(3, max-content);
+  }
+}

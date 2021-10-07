@@ -1,28 +1,24 @@
-import * as React from "react"
+import * as React from "react";
 
-const CartIcon = (props) => {
+const CartIcon = props => {
   return (
     <svg
-      width={24}
-      height={24}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      stroke="currentColor"
+      stroke-width="1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
       {...props}
     >
-      <title>{"Cart"}</title>
-      <path
-        d="M3.077 5.05A2 2 0 015.076 3h13.848a2 2 0 012 2.05l-.35 14a2 2 0 01-2 1.95H5.426a2 2 0 01-2-1.95l-.35-14z"
-        stroke="currentColor"
-        strokeWidth={1}
-      />
-      <path
-        d="M16 6c0 2.761-1.79 5-4 5S8 8.761 8 6"
-        stroke="currentColor"
-        strokeWidth={1}
-      />
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="20" cy="21" r="1"></circle>
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
     </svg>
-  )
-}
+  );
+};
 
-export default CartIcon
+export default CartIcon;

@@ -4,6 +4,7 @@
   const notBuild = typeof window !== "undefined";
 
   addScript("/js/navigation.js");
+  addScript("/js/options.js");
 
   function addScript(url) {
     const script = document.createElement("script");

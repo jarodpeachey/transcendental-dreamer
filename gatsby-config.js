@@ -50,18 +50,18 @@ module.exports = {
       },
     },
     "gatsby-plugin-split-css",
-    {
-      resolve: "gatsby-plugin-no-javascript-utils",
-      options: {
-        noSourcemaps: true,
-        removeGeneratorTag: true,
-        removeReactHelmetAttrs: true,
-        noInlineStyles: false,
-        removeGatsbyAnnouncer: true,
-        removeFocusWrapper: false,
-        removePreloadLinks: false,
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-no-javascript-utils",
+    //   options: {
+    //     noSourcemaps: true,
+    //     removeGeneratorTag: true,
+    //     removeReactHelmetAttrs: true,
+    //     noInlineStyles: false,
+    //     removeGatsbyAnnouncer: true,
+    //     removeFocusWrapper: false,
+    //     removePreloadLinks: false,
+    //   },
+    // },
     // {
     //   resolve: "gatsby-plugin-no-javascript",
     //   options: {
