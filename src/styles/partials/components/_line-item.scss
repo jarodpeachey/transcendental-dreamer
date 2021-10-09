@@ -58,7 +58,7 @@
       color: $color--heading;
       text-align: left;
 
-      &:nth-child(1) {
+      &.category {
         font-weight: 600;
       }
     }

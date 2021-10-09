@@ -68,23 +68,20 @@ const LineItem = ({ item }) => {
             {item.title} <span>x{quantity}</span>
           </h2>
           <div className="flex">
-            <p>{item.variant.title === "Default Title" ? "" : item.variant.title}</p>
+            {item.variant && item.variant.title !== "Default Title" && <p className="category">{item.variant.title === "Default Title" ? "" : item.variant.title}</p>}
             <p>{price}</p>
           </div>
           <NumericInput
-          disabled={loading}
-          value={quantity}
-          className="quan"
-          aria-label="Quantity"
-          onIncrement={doIncrement}
-          onDecrement={doDecrement}
-          onChange={e => handleQuantityChange(e.currentTarget.value)}
-        />
+            disabled={loading}
+            value={quantity}
+            aria-label="Quantity"
+            onIncrement={doIncrement}
+            onDecrement={doDecrement}
+            onChange={e => handleQuantityChange(e.currentTarget.value)}
+          />
         </div>
       </div>
-      <div className="line-item__right">
-        {subtotal}
-      </div>
+      <div className="line-item__right">{subtotal}</div>
     </div>
     // <tr>
     //   <td></td>
