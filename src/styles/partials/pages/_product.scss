@@ -68,23 +68,24 @@
     padding: 6px 16px;
     border-radius: none;
     cursor: pointer;
-    border: 1px solid #e8e8e8;
+    border: 1px solid $color--tan-light;
     border-left: none;
     font-size: 14px;
     text-transform: uppercase;
     font-family: "Montserrat";
 
     &.active {
-      background: $color--heading;
-      color: white;
+      background: $color--tan;
+      color: $color--heading;
+      border-color: $color--tan;
 
       &:hover {
-        background: $color--heading;
+        background: $color--tan;
       }
     }
 
     &:hover {
-      background: #e8e8e8;
+      background: $color--tan-light;
     }
 
     &:first-child {
@@ -130,5 +131,7 @@
     font-weight: 500;
     margin-right: 8px;
     margin-bottom: 8px;
+    display: inline-block;
+    padding: 0px 12px;
   }
 }
