@@ -78,9 +78,9 @@ export default function Product({ data: { product, suggestions } }) {
   return (
     <Layout>
       {firstImage ? (
-        <SEO script="/js/options.js" bodyClass="product" title={title} description={description} image={getSrc(firstImage.gatsbyImageData)} />
+        <SEO script="js/options.js" bodyClass="product" title={title} description={description} image={getSrc(firstImage.gatsbyImageData)} />
       ) : (
-        <SEO script="/js/options.js" title={title} description={description} bodyClass="product" />
+        <SEO script="js/options.js" title={title} description={description} bodyClass="product" />
       )}
       <div className="product__wrapper">
         <div className="container">

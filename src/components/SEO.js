@@ -36,6 +36,7 @@ function SEO({ description, title, bodyClass, image = null, script }) {
       <meta name="twitter:description" content={description || defaultDescription} />
 
       <script src={withPrefix("js/main.js")} type="text/javascript" defer="true" />
+      <script src={withPrefix("js/options.js")} type="text/javascript" defer="true" />
       {script && <script src={withPrefix(script)} type="text/javascript" defer="true" />}
     </Helmet>
   );
