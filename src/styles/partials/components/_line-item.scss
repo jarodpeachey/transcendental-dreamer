@@ -195,15 +195,23 @@
       margin-top: 12px;
     }
   }
- 
-  .tag {
-    background: #e8e8e8;
-    border-radius: 2px;
-    padding: 4px 8px;
+  .remove {
     font-size: 14px;
-    text-decoration: none;
-    color: $color--heading;
+    line-height: 14px;
+    padding: 0;
+    border: none;
+    margin: 0;
+    margin-left: 12px;
+    color: #999;
+    transition: .1s;
+    font-weight: 300;
+    text-decoration: underline;
     font-family: "Montserrat";
-    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover {
+      color: $color--heading;
+    }
   }
 }
