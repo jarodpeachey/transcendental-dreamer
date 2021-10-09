@@ -5,7 +5,7 @@ import isEqual from "lodash.isequal";
 import { GatsbyImage, getSrc } from "gatsby-plugin-image";
 import { StoreContext } from "../../../context/store-context";
 import AddToCart from "../../../components/AddToCart";
-import { NumericInput } from "../../../components/numeric-input";
+import NumericInput from "../../../components/NumericInput";
 import { formatPrice } from "../../../utils/format-price";
 import SEO from "../../../components/SEO";
 import "../../../styles/partials/pages/_product.scss";
@@ -78,9 +78,9 @@ export default function Product({ data: { product, suggestions } }) {
   return (
     <Layout>
       {firstImage ? (
-        <SEO bodyClass="product" title={title} description={description} image={getSrc(firstImage.gatsbyImageData)} />
+        <SEO script="js/options.js" bodyClass="product" title={title} description={description} image={getSrc(firstImage.gatsbyImageData)} />
       ) : (
-        <SEO title={title} description={description} bodyClass="product" />
+        <SEO script="js/options.js" title={title} description={description} bodyClass="product" />
       )}
       <div className="product__wrapper">
         <div className="container">

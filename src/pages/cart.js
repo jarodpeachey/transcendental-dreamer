@@ -2,30 +2,14 @@ import * as React from "react";
 import { Link } from "gatsby";
 import Layout from "../components/Layout";
 import { StoreContext } from "../context/store-context";
-import { LineItem } from "../components/line-item";
+import LineItem from "../components/LineItem";
 import { formatPrice } from "../utils/format-price";
-import {
-  table,
-  wrap,
-  totals,
-  grandTotal,
-  summary,
-  checkoutButton,
-  collapseColumn,
-  labelColumn,
-  imageHeader,
-  productHeader,
-  emptyStateContainer,
-  emptyStateHeading,
-  emptyStateLink,
-  title,
-} from "./cart.module.css";
 import "../styles/partials/pages/_cart.scss";
 import SEO from "../components/SEO";
 
 export default function CartPage() {
   const { checkout, loading } = React.useContext(StoreContext);
-  const emptyCart = checkout.lineItems.length === 0;
+  const emptyCart = checkout.lineItems ? checkout.lineItems.length === 0 : true;
 
   const handleCheckout = () => {
     window.open(checkout.webUrl);
@@ -48,55 +32,22 @@ export default function CartPage() {
             ) : (
               <>
                 <h1>Your cart</h1>
-                  {checkout.lineItems.map(item => (
+                  {checkout.lineItems && checkout.lineItems.map(item => (
                     <LineItem item={item} key={item.id} />
                   ))}
-                <table>
-                  <thead>
-                    <tr>
-                      <th className="image">Image</th>
-                      <th className="product">Product</th>
-                      <th className="collapse">Price</th>
-                      <th>Qty.</th>
-                      <th className="collapse totals">Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {checkout.lineItems.map(item => (
-                      <LineItem item={item} key={item.id} />
-                    ))}
-
-                    <tr className="summary">
-                      <td className="collapse"></td>
-                      <td className="collapse"></td>
-                      <td className="collapse"></td>
-                      <td className="label">Subtotal</td>
-                      <td className="totals">{formatPrice(checkout.subtotalPriceV2.currencyCode, checkout.subtotalPriceV2.amount)}</td>
-                    </tr>
-                    <tr className="summary">
-                      <td className="collapse"></td>
-                      <td className="collapse"></td>
-                      <td className="collapse"></td>
-                      <td className="label">Taxes</td>
-                      <td className="totals">{formatPrice(checkout.totalTaxV2.currencyCode, checkout.totalTaxV2.amount)}</td>
-                    </tr>
-                    <tr className="summary">
-                      <td className="collapse"></td>
-                      <td className="collapse"></td>
-                      <td className="collapse"></td>
-                      <td className="label">Shipping</td>
-                      <td className="totals">Calculated at checkout</td>
-                    </tr>
-                    <tr className="grand-total">
-                      <td className="collapse"></td>
-                      <td className="collapse"></td>
-                      <td className="collapse"></td>
-                      <td className="label">Total Price</td>
-                      <td className="totals">{formatPrice(checkout.totalPriceV2.currencyCode, checkout.totalPriceV2.amount)}</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <button onClick={handleCheckout} disabled={loading} className={checkoutButton}>
+                <div className="summary">
+                  Subtotal:{'   '}<strong>{formatPrice(checkout.subtotalPriceV2.currencyCode, checkout.subtotalPriceV2.amount)}</strong>
+                </div>
+                <div className="summary">
+                  Taxes:{'   '}<strong>{formatPrice(checkout.totalTaxV2.currencyCode, checkout.totalTaxV2.amount)}</strong>
+                </div>
+                {/* <div className="summary">
+                  Shipping:{'   '}<strong>Calculated at checkout</strong>
+                </div> */}
+                <div className="summary">
+                  Total Price:{'   '}<strong>{formatPrice(checkout.totalPriceV2.currencyCode, checkout.totalPriceV2.amount)}</strong>
+                </div>
+                <button className="btn" onClick={handleCheckout} disabled={loading}>
                   Checkout
                 </button>
               </>

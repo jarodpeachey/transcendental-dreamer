@@ -1,0 +1,50 @@
+@use "../breakpoints" as *;
+@use "../shadows" as *;
+@use "../colors" as *;
+
+.numeric-input {
+  background: transparent;
+  border: 1px solid #e8e8e8;
+  border-radius: 2px;
+  // margin: 0 0 12px 0;
+  margin: 0;
+  width: 75px;
+  display: flex;
+  height:fit-content;
+
+  input {
+    border: none;
+    // width: 100%;
+    padding: 0px 0 0 8px;
+    width: 100%;
+
+    &:disabled {
+      background: white;
+    }
+  }
+
+  .increment, .decrement {
+    width: 20px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border-radius: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: .1s;
+
+    &:hover {
+      background:#f7f7f7;
+    }
+    &:active {
+      background:#e8e8e8;
+    }
+
+    span {
+      display: none;
+    }
+  }
+}

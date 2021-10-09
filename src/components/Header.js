@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { StoreContext } from "../context/store-context";
 import CartButton from "./CartButton";
 import SearchIcon from "../icons/SearchIcon";
-import { Toast } from "./toast";
+import Toast from "./Toast";
 import "../styles/partials/_header.scss";
 import CloseIcon from "../icons/CloseIcon";
 import MenuIcon from "../icons/MenuIcon";
@@ -13,7 +13,7 @@ const Header = ({ transparent }) => {
 
   const items = checkout ? checkout.lineItems : [];
 
-  const quantity = items.reduce((total, item) => {
+  const quantity = items && items.length > 0 && items.reduce((total, item) => {
     return total + item.quantity;
   }, 0);
 

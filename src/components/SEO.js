@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql, withPrefix } from "gatsby";
 import "../styles/_layout.scss";
 
-function SEO({ description, title, bodyClass, image = null }) {
+function SEO({ description, title, bodyClass, image = null, script }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -36,6 +36,7 @@ function SEO({ description, title, bodyClass, image = null }) {
       <meta name="twitter:description" content={description || defaultDescription} />
 
       <script src={withPrefix("js/main.js")} type="text/javascript" defer="true" />
+      {script && <script src={withPrefix(script)} type="text/javascript" defer="true" />}
     </Helmet>
   );
 }
