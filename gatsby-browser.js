@@ -15,6 +15,7 @@ export const wrapRootElement = ({ element }) => <StoreProvider>{element}</StoreP
 
 export const onRouteUpdate = () => {
   addScript('/js/options.js')
+  addScript('/js/navigation.js')
 }
 
 // export const onRouteUpdate = ({ location, prevLocation }) => {
