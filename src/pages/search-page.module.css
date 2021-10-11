@@ -152,40 +152,6 @@
   color: var(--text-color-primary);
 }
 
-.sortSelector {
-  display: grid;
-  place-items: center;
-  font-weight: var(--semibold);
-}
-
-.sortSelector label {
-  grid-area: 1/1;
-  cursor: pointer;
-}
-
-.sortSelector:hover .sortIcon {
-  color: var(--text-color-primary);
-}
-
-.sortSelector select {
-  padding-left: var(--space-lg);
-  opacity: 0;
-  width: var(--size-input);
-  height: var(--size-input);
-  cursor: pointer;
-  font-weight: var(--semibold);
-  appearance: none;
-  background: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg' fill='black'%3E%3Cpolyline points='4 6 8 10 12 6'/%3E%3C/svg%3E")
-    no-repeat center right;
-}
-
-.sortSelector label span {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-}
-
 .sortIcon {
   grid-area: 1/1;
   color: var(--text-color-secondary);

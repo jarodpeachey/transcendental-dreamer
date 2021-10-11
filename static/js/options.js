@@ -3,6 +3,7 @@
   const wrappers = document.querySelectorAll('.options')
   console.log(wrappers);
 
+  if (wrappers && wrappers.length > 0) {
   Array.from(wrappers).forEach(item => {
     const options = item.querySelectorAll('.option')
     console.log(options);
@@ -16,4 +17,7 @@
       })
     })
   })
+  }
+
+
 })();

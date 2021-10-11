@@ -155,20 +155,25 @@ function SearchPage({
           <div className="container">
             <h1>Search Results</h1>
             <div className="search-bar" aria-hidden={modalOpen}>
-              <SearchBar defaultTerm={filters.term} setFilters={setFilters} />
-              <button
-                className={[filterButton, filterCount ? activeFilters : undefined].join(" ")}
-                onClick={() => setShowModal(show => !show)}
-                // This is hidden because the filters are already visible to
-                // screenreaders, so the modal isnt needed.
-                aria-hidden
-              >
-                <FilterIcon />
-              </button>
-              <div className={sortSelector}>
-                <label>
-                  <span>Sort by:</span>
+              <div className="search-bar__left">
+                {" "}
+                <SearchBar defaultTerm={filters.term} setFilters={setFilters} />
+                <button
+                  className="filter btn"
+                  onClick={() => setShowModal(show => !show)}
+                  // This is hidden because the filters are already visible to
+                  // screenreaders, so the modal isnt needed.
+                  aria-hidden
+                >
+                  Advanced filters
+                </button>
+              </div>
+
+              <div className="search-bar__right">
+                <div className="d-none d-md-block">
+                  <label for="sort-by">Sort by:</label>
                   <select
+                    name="sort-by"
                     value={sortKey}
                     // eslint-disable-next-line
                     onChange={e => setSortKey(e.target.value)}
@@ -179,8 +184,82 @@ function SearchPage({
                     <option value="CREATED_AT">New items</option>
                     <option value="BEST_SELLING">Trending</option>
                   </select>
-                </label>
-                <SortIcon className={sortIcon} />
+                </div>
+                <div className="d-md-none">
+                  <SortIcon
+                    className="sort-icon"
+                    onClick={e => {
+                      if (document.querySelector(".sort-menu").classList.contains("open")) {
+                        document.querySelector(".sort-menu").classList.remove("open");
+                      } else {
+                        document.querySelector(".sort-menu").classList.add("open");
+                      }
+                    }}
+                  />
+
+                  <div className="sort-menu">
+                    <div
+                      className="sort-menu__option"
+                      onClick={e => {
+                        let elements = document.querySelectorAll(".sort-menu__option");
+
+                        Array.from(elements).forEach(item => item.classList.remove("active"));
+                        e.target.classList.add("active");
+                        setSortKey("RELEVANCE");
+                      }}
+                    >
+                      Relevance
+                    </div>
+                    <div
+                      className="sort-menu__option"
+                      onClick={e => {
+                        let elements = document.querySelectorAll(".sort-menu__option");
+
+                        Array.from(elements).forEach(item => item.classList.remove("active"));
+                        e.target.classList.add("active");
+                        setSortKey("PRICE");
+                      }}
+                    >
+                      Price
+                    </div>
+                    <div
+                      className="sort-menu__option"
+                      onClick={e => {
+                        let elements = document.querySelectorAll(".sort-menu__option");
+
+                        Array.from(elements).forEach(item => item.classList.remove("active"));
+                        e.target.classList.add("active");
+                        setSortKey("TITLE");
+                      }}
+                    >
+                      Title
+                    </div>
+                    <div
+                      className="sort-menu__option"
+                      onClick={e => {
+                        let elements = document.querySelectorAll(".sort-menu__option");
+
+                        Array.from(elements).forEach(item => item.classList.remove("active"));
+                        e.target.classList.add("active");
+                        setSortKey("CREATED_AT");
+                      }}
+                    >
+                      New items
+                    </div>
+                    <div
+                      className="sort-menu__option"
+                      onClick={e => {
+                        let elements = document.querySelectorAll(".sort-menu__option");
+
+                        Array.from(elements).forEach(item => item.classList.remove("active"));
+                        e.target.classList.add("active");
+                        setSortKey("BEST_SELLING");
+                      }}
+                    >
+                      Trending
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className={main}>
@@ -253,28 +332,32 @@ function SearchBar({ defaultTerm, setFilters }) {
 
   return (
     <form onSubmit={e => e.preventDefault()}>
-      <input
-        type="text"
-        value={term}
-        onChange={e => {
-          setTerm(e.target.value);
-          debouncedSetFilters(e.target.value);
-        }}
-        placeholder="Search..."
-      />
-      {term ? (
-        <button
-          className={clearSearch}
-          type="reset"
-          onClick={() => {
-            setTerm("");
-            setFilters(filters => ({ ...filters, term: "" }));
+      <label for="search">Search</label>
+      <div className="form__flex">
+        <input
+          type="text"
+          name="search"
+          value={term}
+          onChange={e => {
+            setTerm(e.target.value);
+            debouncedSetFilters(e.target.value);
           }}
-          aria-label="Clear search query"
-        >
-          <CloseIcon />
-        </button>
-      ) : undefined}
+          placeholder="Search..."
+        />
+        {term ? (
+          <button
+            className="clear-search btn"
+            type="reset"
+            onClick={() => {
+              setTerm("");
+              setFilters(filters => ({ ...filters, term: "" }));
+            }}
+            aria-label="Clear search query"
+          >
+            <CloseIcon />
+          </button>
+        ) : undefined}
+      </div>
     </form>
   );
 }
