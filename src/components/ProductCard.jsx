@@ -6,7 +6,6 @@ import { formatPrice } from "../utils/format-price"
 import "../styles/partials/_product-card.scss"
 
 const ProductCard = ({ product, eager }) => {
-  console.log(product.images)
   const {
     title,
     priceRangeV2,

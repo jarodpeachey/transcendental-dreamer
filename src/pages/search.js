@@ -39,7 +39,6 @@ import {
 } from "./search-page.module.css";
 import "../styles/partials/pages/_search.scss";
 import SEO from "../components/SEO";
-import ProductGrid from "../components/ProductGrid";
 
 export const query = graphql`
   query {
@@ -55,14 +54,6 @@ export const query = graphql`
           vendor
           productType
           handle
-          id
-          title
-          slug: gatsbyPath(filePath: "/products/{ShopifyProduct.productType}/{ShopifyProduct.handle}")
-          images {
-            id
-            altText
-            gatsbyImageData(aspectRatio: 1, width: 640)
-          }
           priceRangeV2 {
             minVariantPrice {
               currencyCode
@@ -73,7 +64,10 @@ export const query = graphql`
               amount
             }
           }
-          vendor
+          id
+          images {
+            gatsbyImageData(aspectRatio: 1, width: 200, layout: FIXED)
+          }
         }
       }
     }
@@ -113,7 +107,6 @@ function SearchPage({
   // Otherwise, use the data from search.
   const isDefault = !data;
   const productList = (isDefault ? products.edges : data?.products?.edges) ?? [];
-  console.log(productList);
 
   // Scroll up when navigating
   React.useEffect(() => {
@@ -177,7 +170,7 @@ function SearchPage({
               </div>
 
               <div className="search-bar__right">
-                <div>
+                <div className="d-none d-md-block">
                   <label for="sort-by">Sort by:</label>
                   <select
                     name="sort-by"
@@ -192,7 +185,7 @@ function SearchPage({
                     <option value="BEST_SELLING">Trending</option>
                   </select>
                 </div>
-                {/* <div className="d-md-none">
+                <div className="d-md-none">
                   <SortIcon
                     className="sort-icon"
                     onClick={e => {
@@ -266,7 +259,7 @@ function SearchPage({
                       Trending
                     </div>
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
             <div className="results">
@@ -279,55 +272,44 @@ function SearchPage({
                     </button>
                   </div>
                   <div className="sidebar__content">
-                    <SidebarFilters
-                      setFilters={setFilters}
-                      filters={filters}
-                      tags={tags}
-                      vendors={vendors}
-                      productTypes={productTypes}
-                      currencyCode={currencyCode}
-                    />
+                    <SidebarFilters setFilters={setFilters} filters={filters} tags={tags} vendors={vendors} productTypes={productTypes} currencyCode={currencyCode} />
                   </div>
                 </div>
               </section>
-              <section className="results__content" aria-busy={isFetching} aria-hidden={modalOpen}>
+              <section className={results} aria-busy={isFetching} aria-hidden={modalOpen}>
                 {isFetching ? (
-                  <p className="results__label">
+                  <p className={progressStyle}>
                     <Spinner aria-valuetext="Searching" /> Searching
                     {filters.term ? ` for "${filters.term}"…` : `…`}
                   </p>
                 ) : (
-                  <p className="results__label">
+                  <p className={resultsStyle}>
                     Search results{" "}
                     {filters.term && (
                       <>
-                        for "<span className="results__label">{filters.term}</span>"
+                        for "<span>{filters.term}</span>"
                       </>
                     )}
                   </p>
                 )}
-                <ul className="results__list row">
-                  {!isFetching && (
-                    <>
-                      <ProductGrid products={productList} />
-                      {/* {productList.map(({ node }, index) => (
-                        <li className="result__item col-xs-6 col-md-4 col-lg-6 col-xl-4" key={node.id}>
-                          <ProductCard
-                            eager={index === 0}
-                            product={{
-                              title: node.title,
-                              priceRangeV2: node.priceRangeV2,
-                              slug: `/products/${slugify(node.productType)}/${node.handle}`,
-                              // The search API and Gatsby data layer have slightly different images available.
-                              images: isDefault ? node.images : [],
-                              storefrontImages: !isDefault && node.images,
-                              vendor: node.vendor,
-                            }}
-                          />
-                        </li>
-                      ))} */}
-                    </>
-                  )}
+                <ul className={productListStyle}>
+                  {!isFetching &&
+                    productList.map(({ node }, index) => (
+                      <li className={productListItem} key={node.id}>
+                        <ProductCard
+                          eager={index === 0}
+                          product={{
+                            title: node.title,
+                            priceRangeV2: node.priceRangeV2,
+                            slug: `/products/${slugify(node.productType)}/${node.handle}`,
+                            // The search API and Gatsby data layer have slightly different images available.
+                            images: isDefault ? node.images : [],
+                            storefrontImages: !isDefault && node.images,
+                            vendor: node.vendor,
+                          }}
+                        />
+                      </li>
+                    ))}
                 </ul>
                 {hasPreviousPage || hasNextPage ? (
                   <Pagination previousPage={fetchPreviousPage} hasPreviousPage={hasPreviousPage} nextPage={fetchNextPage} hasNextPage={hasNextPage} />
