@@ -1,6 +1,7 @@
 @use "../breakpoints" as *;
 @use "../shadows" as *;
 @use "../colors" as *;
+@use "../product-card" as *;
 
 .search {
   .search__wrapper {
@@ -25,7 +26,7 @@
     }
   }
 
-  label {
+  label, .results__label {
     font-weight: 500;
     font-size: 16px;
     font-family: "Montserrat";
@@ -118,10 +119,7 @@
       font-size: 16px;
       font-family: "Montserrat";
       color: $color--heading;
-
-      @include media-breakpoint-up(md) {
-        padding-bottom: 21.6px;
-      }
+      padding-bottom: 21.6px;
 
       @include media-breakpoint-up(lg) {
         padding-bottom: 0;
@@ -195,7 +193,7 @@
   .filter {
     padding: 0;
     width: 100%;
-    text-align: right;
+    text-align: left;
     color: $color--text;
     background: transparent;
     border: none;
@@ -209,6 +207,12 @@
     font-weight: 300 !important;
     letter-spacing: initial !important;
 
+    font-size: 14px;
+    color: $color--heading;
+    // text-transform: lowercase;
+    text-decoration: underline;
+    cursor: pointer;
+
     @include media-breakpoint-up(lg) {
       display: none;
     }
@@ -221,10 +225,26 @@
   }
 
   .results__content {
+    padding-top: 64px;
+
     @include media-breakpoint-up(lg) {
-      padding-left: 350px;
-      margin-left: 32px;
+      padding-left: 32px;
+      padding-top: 0;
       width: 100%;
+    }
+  }
+
+  .results__label {
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+
+  .results__list {
+    padding: 0;
+    margin: 0;
+
+    li {
+      list-style: none;
     }
   }
 
@@ -232,7 +252,8 @@
     background: white;
     width: 0;
     height: 0;
-    overflow: hidden;
+    overflow-y: auto;
+    // overflow-x: hidden;
     padding-top: 0;
     padding-bottom: 0;
 
@@ -257,8 +278,8 @@
 
     &.open {
       .container {
-        display: grid;
-        grid-template-rows: min-content 1fr;
+        // display: grid;
+        // grid-template-rows: min-content 1fr;
       }
 
       position: fixed;
@@ -269,7 +290,7 @@
       height: 100vh;
       width: 100vw;
       z-index: 10;
-      overscroll-behavior: contain;
+      // overscroll-behavior: contain;
     }
 
     .sidebar__title {
@@ -308,8 +329,8 @@
     }
 
     .sidebar__content {
-      overflow-y: auto;
-      overflow-x: hidden;
+      // overflow-y: auto;
+      // overflow-x: hidden;
 
       @include media-breakpoint-up(lg) {
         padding-left: 12px;
