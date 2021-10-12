@@ -37,7 +37,7 @@
 }
 
 .filter summary::-webkit-details-marker {
-  display: none; /* hide the summary arrow on safari */
+  display: none;
 }
 
 .summary {
@@ -57,45 +57,8 @@
   line-height: var(--solid);
 }
 
-.checkbox {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  appearance: none;
-  border: 1px var(--text-color-secondary) solid;
-  width: var(--space-xl);
-  height: var(--space-xl);
-  border-radius: var(--radius-sm);
-  margin-right: var(--space-md);
-}
-
-@media (min-width: 640px) {
-  .filter label {
-    line-height: var(--dense);
-    max-width: 240px;
-  }
-
-  .checkbox {
-    width: var(--space-lg);
-    height: var(--space-lg);
-  }
-}
-
 @media (min-width: 1024px) {
   .filter label {
     font-size: var(--text-md);
   }
-}
-
-.checkbox:checked {
-  border-color: var(--primary);
-  background-color: var(--primary);
-}
-
-.checkbox::before {
-  line-height: 0;
-  font-size: var(--text-sm);
-  font-weight: var(--bold);
-  color: var(--text-color-inverted);
-  content: "\2713";
 }

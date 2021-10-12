@@ -12,7 +12,7 @@ import ProductCard from "../components/ProductCard";
 import { getValuesFromQueryString, useProductSearch } from "../utils/hooks";
 import { getCurrencySymbol } from "../utils/format-price";
 import { Spinner } from "../components/progress";
-import { Filters } from "../components/filters";
+import SidebarFilters from "../components/SidebarFilters";
 import { SearchProvider } from "../context/search-provider";
 import {
   visuallyHidden,
@@ -262,16 +262,18 @@ function SearchPage({
                 </div>
               </div>
             </div>
-            <div className={main}>
-              <section className={[filterStyle, showModal && modalOpen].join(" ")}>
-                <div className={filterTitle}>
-                  <h2>Filter</h2>
-                  <button aria-hidden onClick={() => setShowModal(false)}>
-                    <CloseIcon />
-                  </button>
-                </div>
-                <div className={filterWrap}>
-                  <Filters setFilters={setFilters} filters={filters} tags={tags} vendors={vendors} productTypes={productTypes} currencyCode={currencyCode} />
+            <div className="results">
+              <section className={`sidebar ${showModal && "open"}`}>
+                <div className="container">
+                  <div className="sidebar__title">
+                    <h3>Filter results</h3>
+                    <button aria-hidden onClick={() => setShowModal(false)}>
+                      <CloseIcon />
+                    </button>
+                  </div>
+                  <div className="sidebar__content">
+                    <SidebarFilters setFilters={setFilters} filters={filters} tags={tags} vendors={vendors} productTypes={productTypes} currencyCode={currencyCode} />
+                  </div>
                 </div>
               </section>
               <section className={results} aria-busy={isFetching} aria-hidden={modalOpen}>
