@@ -15,7 +15,7 @@
   border: 1px solid $color--heading;
   text-decoration: none;
   position: relative;
-  transition: 0.2s ease;
+  transition: background 0.2s, border .2s, transform .2s;
   display: block;
   width: fit-content;
   text-transform: uppercase;

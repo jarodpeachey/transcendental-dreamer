@@ -40,7 +40,7 @@ const ProductCard = ({ product, eager, searchResult, slug }) => {
   return (
     <Link to={slug} aria-label={`View ${title} product page`} className="product-card">
       {searchResult ? (
-        <div className="product-card__image">
+        <div className={`product-card__image ${searchResult ? 'search-result' : ''}`}>
           <img
             src={
               product &&

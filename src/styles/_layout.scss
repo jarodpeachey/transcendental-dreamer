@@ -1,6 +1,7 @@
 @use "partials/_typography" as *;
 @use "partials/_buttons" as *;
 @use "partials/_breakpoints" as *;
+@use "partials/_colors" as *;
 @use "vendor/_grid" as *;
 @use "partials/_footer" as *;
 
@@ -152,5 +153,5 @@ p.hidden {
 }
 
 .gatsby-image-wrapper {
-  background: #f7f7f7;
+  background: $color--tan-light;
 }

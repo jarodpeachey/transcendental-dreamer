@@ -64,7 +64,7 @@
     margin-bottom: 12px;
   }
   .option {
-    transition: background border .2s;
+    transition: background .2s, border .2s;
     padding: 6px 16px;
     border-radius: none;
     cursor: pointer;

@@ -9,8 +9,30 @@
     overflow: hidden;
     background: #f7f7f7;
     border: none;
-    height: fit-content;
+    height: auto;
     line-height: 0px;
+
+    &.search-result {
+      aspect-ratio: 1;
+      width: 100%;
+      @include media-breakpoint-up(sm) {
+        width: 230px;
+        height: 230px;
+      }
+
+      @include media-breakpoint-up(md) {
+        width: 192px;
+        height: 192px;
+      }
+      @include media-breakpoint-up(lg) {
+        width: 280px;
+        height: 280px;
+      }
+      @include media-breakpoint-up(xl) {
+        width: 232px;
+        height: 232px;
+      }
+    }
 
     img {
       width: 100%;
