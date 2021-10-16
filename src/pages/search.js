@@ -186,7 +186,7 @@ function SearchPage({
                     <option value="BEST_SELLING">Trending</option>
                   </select>
                 </div>
-                <div className="d-none">
+                {/* <div className="d-none">
                   <SortIcon
                     className="sort-icon"
                     onClick={e => {
@@ -260,7 +260,7 @@ function SearchPage({
                       Trending
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="results">

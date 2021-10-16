@@ -13,7 +13,7 @@ const ProductGrid = ({ products = [], searchResult }) => {
           key={searchResult ? p.node.id : p.id}
           eager={index === 0}
           searchResult={searchResult}
-          slug={searchResult ? `/products${slugify(p.node.productType)}/${p.node.handle}` : p.slug}
+          slug={searchResult ? `/products/${p.node.productType ? `${slugify(p.node.productType)}/` : ''}${p.node.handle}` : p.slug}
         />
       ))}
     </div>

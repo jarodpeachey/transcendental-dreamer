@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { getShopifyImage } from "gatsby-source-shopify";
 import { formatPrice } from "../utils/format-price";
 import "../styles/partials/_product-card.scss";
+import slugify from "@sindresorhus/slugify";
 
 const ProductCard = ({ product, eager, searchResult, slug }) => {
   const {
@@ -35,13 +36,22 @@ const ProductCard = ({ product, eager, searchResult, slug }) => {
 
   const hasImage = firstImage || Object.getOwnPropertyNames(storefrontImageData || {}).length;
 
-  console.error(product)
-
+  console.error(slug);
   return (
     <Link to={slug} aria-label={`View ${title} product page`} className="product-card">
       {searchResult ? (
         <div className="product-card__image">
-          <img src={product && product.images && product.images.edges && product.images.edges[0] && product.images.edges[0].node && product.images.edges[0].node.originalSrc} alt="" />
+          <img
+            src={
+              product &&
+              product.images &&
+              product.images.edges &&
+              product.images.edges[0] &&
+              product.images.edges[0].node &&
+              product.images.edges[0].node.originalSrc
+            }
+            alt=""
+          />
         </div>
       ) : (
         <>
