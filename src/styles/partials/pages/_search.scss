@@ -32,6 +32,21 @@
     color: #1f2021;
   }
 
+  .results__content__title {
+    font-weight: 300;
+    font-size: 16px;
+    font-family: "Montserrat";
+    color: #1f2021;
+    margin-top: 0;
+
+    span {
+      font-weight: 500;
+      font-size: 16px;
+      font-family: "Montserrat";
+      color: #1f2021;
+    }
+  }
+
   input,
   select {
     padding: 6px 16px;
@@ -53,7 +68,7 @@
       background: white;
     }
 
-    transition: 0.1s;
+    transition: border 0.1s;
 
     &:hover,
     &:active {
@@ -118,10 +133,7 @@
       font-size: 16px;
       font-family: "Montserrat";
       color: $color--heading;
-
-      @include media-breakpoint-up(md) {
-        padding-bottom: 21.6px;
-      }
+      padding-bottom: 21.6px;
 
       @include media-breakpoint-up(lg) {
         padding-bottom: 0;
@@ -221,9 +233,10 @@
   }
 
   .results__content {
+    padding-top: 0;
     @include media-breakpoint-up(lg) {
-      padding-left: 350px;
-      margin-left: 32px;
+      // padding-left: 350px;
+      margin-left: 48px;
       width: 100%;
     }
   }

@@ -8,7 +8,7 @@ import CloseIcon from "../icons/CloseIcon";
 import SortIcon from "../icons/SortIcon";
 import FilterIcon from "../icons/FilterIcon";
 import SearchIcon from "../icons/SearchIcon";
-import ProductCard from "../components/ProductCard";
+import ProductGrid from "../components/ProductGrid";
 import { getValuesFromQueryString, useProductSearch } from "../utils/hooks";
 import { getCurrencySymbol } from "../utils/format-price";
 import { Spinner } from "../components/progress";
@@ -67,6 +67,7 @@ export const query = graphql`
           id
           images {
             gatsbyImageData(aspectRatio: 1, width: 200, layout: FIXED)
+            id
           }
         }
       }
@@ -91,7 +92,7 @@ function SearchPage({
   // This modal is only used on mobile
   const [showModal, setShowModal] = React.useState(false);
 
-  const { data, isFetching, filterCount, hasNextPage, hasPreviousPage, fetchNextPage, fetchPreviousPage } = useProductSearch(
+  const { data, isFetching, productsFromSearch, filterCount, hasNextPage, hasPreviousPage, fetchNextPage, fetchPreviousPage } = useProductSearch(
     filters,
     {
       allProductTypes: productTypes,
@@ -170,7 +171,7 @@ function SearchPage({
               </div>
 
               <div className="search-bar__right">
-                <div className="d-none d-md-block">
+                <div className="d-block">
                   <label for="sort-by">Sort by:</label>
                   <select
                     name="sort-by"
@@ -185,7 +186,7 @@ function SearchPage({
                     <option value="BEST_SELLING">Trending</option>
                   </select>
                 </div>
-                <div className="d-md-none">
+                <div className="d-none">
                   <SortIcon
                     className="sort-icon"
                     onClick={e => {
@@ -272,18 +273,25 @@ function SearchPage({
                     </button>
                   </div>
                   <div className="sidebar__content">
-                    <SidebarFilters setFilters={setFilters} filters={filters} tags={tags} vendors={vendors} productTypes={productTypes} currencyCode={currencyCode} />
+                    <SidebarFilters
+                      setFilters={setFilters}
+                      filters={filters}
+                      tags={tags}
+                      vendors={vendors}
+                      productTypes={productTypes}
+                      currencyCode={currencyCode}
+                    />
                   </div>
                 </div>
               </section>
-              <section className={results} aria-busy={isFetching} aria-hidden={modalOpen}>
+              <section className="results__content" aria-busy={isFetching} aria-hidden={modalOpen}>
                 {isFetching ? (
                   <p className={progressStyle}>
                     <Spinner aria-valuetext="Searching" /> Searching
                     {filters.term ? ` for "${filters.term}"…` : `…`}
                   </p>
                 ) : (
-                  <p className={resultsStyle}>
+                  <p className="results__content__title ">
                     Search results{" "}
                     {filters.term && (
                       <>
@@ -292,25 +300,28 @@ function SearchPage({
                     )}
                   </p>
                 )}
-                <ul className={productListStyle}>
+                <ProductGrid products={productList} searchResult={true} />
+                {/* <ul className={productListStyle}>
                   {!isFetching &&
                     productList.map(({ node }, index) => (
                       <li className={productListItem} key={node.id}>
                         <ProductCard
                           eager={index === 0}
+                          searchResult={true}
+                          images={node.images.edges}
                           product={{
                             title: node.title,
                             priceRangeV2: node.priceRangeV2,
                             slug: `/products/${slugify(node.productType)}/${node.handle}`,
                             // The search API and Gatsby data layer have slightly different images available.
-                            images: isDefault ? node.images : [],
+                            images: isDefault ? node.images : node.images.edges,
                             storefrontImages: !isDefault && node.images,
                             vendor: node.vendor,
                           }}
                         />
                       </li>
                     ))}
-                </ul>
+                </ul> */}
                 {hasPreviousPage || hasNextPage ? (
                   <Pagination previousPage={fetchPreviousPage} hasPreviousPage={hasPreviousPage} nextPage={fetchNextPage} hasNextPage={hasNextPage} />
                 ) : undefined}

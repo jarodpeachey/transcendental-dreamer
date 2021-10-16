@@ -64,7 +64,7 @@
     margin-bottom: 12px;
   }
   .option {
-    transition: .2s;
+    transition: background border .2s;
     padding: 6px 16px;
     border-radius: none;
     cursor: pointer;
@@ -91,7 +91,7 @@
     &:first-child {
       border-bottom-left-radius: 2px;
       border-top-left-radius: 2px;
-      border-left: 1px solid #e8e8e8;
+      border-left: 1px solid $color--tan-light;
     }
 
     &:last-child {

@@ -23,4 +23,20 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 48px;
   }
+
+  &.search-result {
+    @include media-breakpoint-up(md) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+    }
+  }
 }
