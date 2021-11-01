@@ -4,7 +4,11 @@ import { footerStyle, copyright, links, blurb, logos, footerNavList, footerNavLi
 
 const Footer = () => {
   return (
-    <div></div>
+    <footer>
+      <div className="container">
+        
+      </div>
+    </footer>
     // <footer className={footerStyle}>
     //   <div className={blurb}>
     //     <div className={logos}>
