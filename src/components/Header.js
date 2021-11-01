@@ -13,15 +13,18 @@ const Header = ({ transparent }) => {
 
   const items = checkout ? checkout.lineItems : [];
 
-  const quantity = items && items.length > 0 && items.reduce((total, item) => {
-    return total + item.quantity;
-  }, 0);
+  const quantity =
+    items &&
+    items.length > 0 &&
+    items.reduce((total, item) => {
+      return total + item.quantity;
+    }, 0);
 
   return (
     <>
       <header>
         <nav role="navigation" aria-label="Main" className={`nav ${transparent ? "transparent" : ""}`}>
-        <div className="callout">25% off everything through Black Friday</div>
+          <div className="callout">25% off everything through Black Friday</div>
           <div className="container container--wide">
             <div className="menu__wrapper">
               <div className="logo" id="logo">
@@ -78,6 +81,22 @@ const Header = ({ transparent }) => {
           </div>
         </nav>
       </header>
+      <div className="popup">
+        <div className="popup-card">
+          <CloseIcon className="popup-card__close" />
+          <img src="/media/img/hero.jpg" alt="" />
+          <div className="popup-card__content">
+            <h3>Join the Transcendental Dreamer family!</h3>
+            <p>Get a special offer mailed directly to your inbox, plus monthly inspiration from dreamers around the world.</p>
+            <form action="">
+              <input type="text" placeholder="Email address" />
+              <button className="btn" type="submit">
+                Join the family
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
       <Toast show={loading || didJustAddToCart}>
         {!didJustAddToCart ? (
           "Updating…"

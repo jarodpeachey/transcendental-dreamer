@@ -14,17 +14,18 @@ function addScript(url, id) {
 export const wrapRootElement = ({ element }) => <StoreProvider>{element}</StoreProvider>;
 
 export const onRouteUpdate = () => {
-  addScript('/js/options.js')
-  addScript('/js/navigation.js')
-}
+  addScript("/js/options.js");
+  addScript("/js/navigation.js");
+  // closed = false;
 
-// export const onRouteUpdate = ({ location, prevLocation }) => {
-//   console.log("new pathname", location.pathname);
-//   console.log("old pathname", prevLocation ? prevLocation.pathname : null);
-
-//   if (location.pathname.includes("product")) {
-//     addScript("/js/options.js", "options-script");
-//   } else {
-//     document.getElementById("options-script") && document.getElementById("options-script").remove();
-//   }
-// };
+  // document.addEventListener("mouseout", e => {
+  //   if (!closed && !e.toElement && !e.relatedTarget) {
+  //     document.querySelector(".popup").classList.add("open");
+  //   }
+  // });
+  // document.querySelector(".popup-card__close").addEventListener("click", e => {
+  //   document.querySelector(".popup").classList.remove("open");
+  //   document.querySelector(".popup").remove();
+  //   closed = true
+  // });
+};

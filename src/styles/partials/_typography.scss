@@ -3,10 +3,10 @@
 
 // @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
 
 html,
 body,
@@ -34,7 +34,7 @@ h5,
 h6 {
   color: $color--heading;
   font-weight: 600;
-  font-family: "Old Standard TT", "Raleway Extrabold";
+  font-family: "Montserrat", "Raleway Extrabold";
   margin-bottom: 1.125rem;
 }
 
@@ -42,6 +42,7 @@ h1,
 .h1 {
   font-size: 48px;
   line-height: 56px;
+  font-family: "Old Standard TT";
 
   @include media-breakpoint-up(md) {
     font-size: 56px;
