@@ -1,12 +1,11 @@
 import * as React from "react";
-import Logo from "../icons/logo";
-import { footerStyle, copyright, links, blurb, logos, footerNavList, footerNavListItem } from "./footer.module.css";
+import "../styles/partials/_footer.scss"
 
 const Footer = () => {
   return (
     <footer>
       <div className="container">
-        
+        <p>© 2021, Transcendental Dreamer</p>
       </div>
     </footer>
     // <footer className={footerStyle}>

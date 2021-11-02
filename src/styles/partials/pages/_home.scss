@@ -215,13 +215,17 @@
 
     p {
       font-size: 18px;
-      margin: 0;
+      margin-top: 0;
       // margin-bottom: 32px;
       max-width: 500px;
+
+      &:last-of-type {
+        margin-bottom: 32px;
+      }
     }
 
     .btn {
-      margin: 0 auto;
+      margin: 0;
     }
   }
 }

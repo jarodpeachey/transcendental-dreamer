@@ -54,6 +54,7 @@ const Home = ({ data }) => {
             <h2>Join the Mission</h2>
             <p>Our mission is to inspire others to chase their dreams.</p>
             <p>For every purchase you make, we'll send 10% to non-profit organizations making a difference around the world.</p>
+            <Link className="btn" to="/products">Join the Mission</Link>
           </div>
         </div>
       </section>

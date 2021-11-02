@@ -1,52 +1,21 @@
 @use "colors" as *;
 
 footer {
-  background: $color--primary-dark;
-  padding: 64px 0 !important;
-  // margin-top: 2rem;
-  margin: 0;
-  position: relative;
-  z-index: 1;
+  padding: 2rem 0;
+  background: white;
+  width: 100%;
 
   .container {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  .d-flex {
-    width: 100%;
-    justify-content: center;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 
-    a {
-      path {
-        stroke: #ffffffaa;
-        transition: .2s ease;
-      }
-
-      &:hover {
-        path {
-          stroke: #ffffff;
-        }
-      }
+    p {
+      font-size: 18px;
+      width: 100%;
+      text-align: center;
+      margin: 0;
     }
-
-    a:first-child {
-      display: block;
-      margin-right: 32px;
-    }
-  }
-
-  p {
-    color: #ffffffaa;
-    font-size: 16px;
-    line-height: 28px;
-    margin: 0;
-    margin-top: 8px;
-  }
-
-  img {
-    display: block;
-    margin-bottom: 24px;
   }
 }
