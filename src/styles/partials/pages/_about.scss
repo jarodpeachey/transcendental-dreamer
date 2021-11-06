@@ -1,0 +1,50 @@
+@use "../breakpoints" as *;
+@use "../shadows" as *;
+@use "../colors" as *;
+
+.about {
+  nav {
+    // background: transparent !important;
+    background: #472c0b50;
+    padding-bottom: 0;
+  }
+  .hero {
+    position: relative;
+    overflow: visible;
+    // padding-top: 200px;
+    background: url("/media/img/hero.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 120px;
+  }
+
+  .content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+
+    h2 {
+      margin: 0;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      position: relative;
+
+      &::after {
+        width: 40px;
+        left: calc(50% - 20px);
+        bottom: 0;
+        height: 2px;
+        background: $color--heading;
+        position: absolute;
+        content: "";
+        display: block;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      margin-top: 0;
+    }
+  }
+}
